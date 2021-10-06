@@ -35,7 +35,14 @@ console.log("Sua idade em horas:", Number(idadeHoras))
 const perNumA=prompt("Digite um número")
 const perNumB=prompt("Digite outro número")
 
-console.log("O primeiro número é maior que o segundo?", Number(perNumA)=<Number(perNumB))
+console.log("O primeiro número é maior que o segundo?", Number(perNumA) >= Number(perNumB))
+
+
+
+
+
+
+
 
 
 
