@@ -1,4 +1,3 @@
-
 // EXERCÍCIO 01
 const nomeUsuario=prompt("Qual seu nome?")
 const emailUsuario=prompt("Qual seu e-mail?")
@@ -36,12 +35,3 @@ console.log(tarefasConcSpl)
 const frutas=["banana", "morango", "abacaxi", "laranja", "ameixa"]
 console.log(frutas[2])
 console.log(frutas.length)
-
-
-
-
-
-
-
-
-
