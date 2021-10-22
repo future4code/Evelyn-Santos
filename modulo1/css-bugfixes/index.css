@@ -130,6 +130,9 @@ td button {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+    label {display: block;}
+  input, button {padding: 10px;}
+  input {width: 50%;}
     
 }
 
