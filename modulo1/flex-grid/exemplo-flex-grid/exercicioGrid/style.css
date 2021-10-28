@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    display: grid;
+    grid-template-rows: 40px 1fr 40px;
+    height: 100vh;
+}
+
+header{
+    display: grid;
+    background-color: lightgreen;
+    grid-template-columns: 1fr 100px;
+    align-items: center;
+    padding: 0 10px;
+}
+main{
+    display: grid;
+    background-color:lightblue;
+    /* border:3px solid black; */
+    grid-template-columns: 300px 1fr 200px;
+
+}
+#menu1{
+    color: white;
+    background-color: red;
+}
+
+section{
+    color: white;
+    background-color: blue;
+}
+
+#menu2{
+    color: white;
+    background-color: purple;
+}
+
+
+footer{
+    background-color: lightcoral;
+
+}
+/* outra maneira de alinhamento horizontal */
+/* button{
+    justify-self: end;
+} */
+
