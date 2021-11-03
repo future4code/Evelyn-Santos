@@ -1,0 +1,43 @@
+/* STYLE PORTFOLIO*/
+body{
+    margin: 40px;
+    font-family: lft-etica-mono-1, lft-etica-mono-2, 
+    "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-weight: 300;
+}
+
+
+div{
+    font-size: 90%;
+}
+div h1{
+    font-size: 200%;
+
+}
+
+.circle {
+    width: 250px;
+    height: 250px;
+    background-color: #40a977;
+    border-radius: 50%;
+    float: left;
+    -webkit-shape-outside: circle();
+    shape-outside: circle();
+}
+
+#medias{
+    width: 10px;
+    height: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* #0b2c6e
+#77f19c */
