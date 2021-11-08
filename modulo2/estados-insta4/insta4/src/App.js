@@ -7,9 +7,20 @@ const MainContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
 `
 
+// const listaDeUsuarios= Post.map()
+// console.log(listaDeUsuarios)
+
 class App extends React.Component {
+  
+
+
+
+
+
+
   render() {
     return (
       <MainContainer>
