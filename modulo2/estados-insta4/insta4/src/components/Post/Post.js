@@ -40,7 +40,7 @@ const PostPhoto = styled.img`
   width: 100%;
 `
 
-class Post extends React.Component { 
+class Post extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
@@ -48,14 +48,7 @@ class Post extends React.Component {
     numeroComentarios: 0
   }
 
-  onClickCurtida = () => {
-    console.log('Curtiu!')
-    this.setState({
-      curtido: true
-    }) 
-  }
-
-  onClickCurtida = () => {
+ onClickCurtida = () => {
     let quantidadeCurtidas
 
     if(this.state.curtido) {
@@ -69,11 +62,17 @@ class Post extends React.Component {
       numeroCurtidas: quantidadeCurtidas
     })
   }
-  
+
+  onClickCurtidas = () =>{
+    console.log('Curtiu"')
+    this.setState({
+      numeroCurtidas: !0
+    })
+  }
 
   onClickComentario = () => {
     this.setState({
-      comentando: !this.state.comentando // aqui so passa "parametro simples?" se for if da? ou e la no render?
+      comentando: !this.state.comentando
     })
   }
 
@@ -98,14 +97,6 @@ class Post extends React.Component {
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
-
-    // let numeroCurtidas
-
-    // if (this.state.numeroCurtidas) {
-    //   numeroCurtidas > 0
-    // } else {
-    //   numeroCurtidas = numeroCurtidas + 1 pq o de cima funcionou e esse nao?
-    // }
 
     return <PostContainer>
       <PostHeader>
