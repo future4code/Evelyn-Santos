@@ -9,7 +9,6 @@ align-items: center;
 margin-bottom: 10px;
 justify-items: flex-start;
 
-const 
 `
 
 function CardGrande(props) {
