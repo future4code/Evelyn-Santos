@@ -3,13 +3,36 @@ import { render } from "@testing-library/react";
 import axios from "axios";
 import styled from "styled-components"
 
+
+const ContainerInput = styled.div`
+/* display: flex;
+justify-content: space-between;
+border: 1px solid black;
+font-family: monospace;
+width: 160px;
+margin: 10px;
+padding: 10px; */
+`
+
+const Input = styled.input`
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px;
+  background: papayawhip;
+  border: none;
+  border-radius: 3px;
+  `
+
+
 export default class CriarPlaylist extends React.Component {
     state = {
-        nomePlaylist: ""
+        nomePlaylist: "",
+        
     }
 
     onChangeInputNome = (event) => {
-        this.setState({nomePlaylist: event.targer.value})
+        this.setState({nomePlaylist: event.target.value})
+        
     }
 
     criarPlaylist = async () => {
@@ -23,6 +46,7 @@ export default class CriarPlaylist extends React.Component {
                     authorization: "evelyn-oliveira-carver"
                 }
             }) 
+
             alert("Playlist criada!")
             this.setState({nomePlaylist:""})
             console.log(resposta)
@@ -34,16 +58,19 @@ export default class CriarPlaylist extends React.Component {
     
     render(){
         return(
-            <div>
-                
-                    <input>
-                    placeholder ="Digite o nome da playlist"
+                    <div>
+                    <ContainerInput>
+                    <input
+                    placeholder ="Crie sua playlist"
                     value = {this.state.nomePlaylist}
-                    onChange = {this.onChangeInputNome}
-                    </input>
+                    onChange = {this.onChangeInputNome}/>
+                    <button onClick={this.criarPlaylist}> Criar</button>
+                    </ContainerInput>
+                    </div>
+                    
                     
                 
-            </div>
+            
         )
     }
 }

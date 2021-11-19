@@ -4,21 +4,27 @@ import axios from "axios";
 import styled from "styled-components"
 
 
-const ContainerPlaylist = styled.div`
+const ContainerLista = styled.div`
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
 border: 1px solid black;
+font-family: monospace;
+width: 160px;
+height: 40px;
+margin: 10px;
+padding: 10px;
 
 `
 
 export default class ListaPlaylist extends React.Component {
     state = {
-        playlists: []
+        playlists: [],
+        id: ""
 
     }
 
     componentDidMount = () => {
-        this.pegarPlaylist()
+        this.pegarPlaylists()
     }
 
     pegarPlaylists = async () => {
@@ -29,7 +35,7 @@ export default class ListaPlaylist extends React.Component {
                     authorization: "evelyn-oliveira-carver"
                 }
             })
-            this.setState({playlist:resposta.data.result.list})
+            this.setState({playlists:resposta.data.result.list})
             console.log(resposta.data.result.list) 
       
         } catch (erro){
@@ -38,16 +44,20 @@ export default class ListaPlaylist extends React.Component {
         }
     }
     
-    deletarPlaylist = async (id) => {
+    
+    deletarPlaylists = async (id) => {
+
+        alert("Playlist deletada com sucesso!")
+
         try {
-            const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists ${id}'
+            const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists${id}'
             const resposta = await axios.delete(url, {
                 headers: {
-                    authorization: "evelyn-oliveira-carver"
+                    Authorization: "evelyn-oliveira-carver"
                 }
             })
 
-            this.pegarPlaylist()
+            this.pegarPlaylists()
 
         }catch (error) {
             alert("Aconteceu um erro!")
@@ -60,15 +70,16 @@ export default class ListaPlaylist extends React.Component {
 
         const listarPlaylists = this.state.playlists.map((playlist) => {
             return (
-                <ContainerPlaylist>
+
+                <ContainerLista>
                     <p>{playlist.name}</p>
-                    <button onClick={this.deletarPlaylist(playlist.id)}>X</button>
-                </ContainerPlaylist>
+                    <button onClick={()=>this.deletarPlaylists(playlist.id)}>x</button>
+                </ContainerLista>
             )
 
         })
         return (
-            <div>{ListaPlaylist}</div>
+            <div>{listarPlaylists}</div>
         )
     }
 }

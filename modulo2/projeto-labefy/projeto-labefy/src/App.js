@@ -68,10 +68,13 @@ export default class App extends React.Component {
 
     return(
       <div>
-        <ListaPlaylist></ListaPlaylist>
+        
+        <CriarPlaylist> </CriarPlaylist>
+        <ListaPlaylist> </ListaPlaylist>
+        
 
         
-      {this.gotPlaylist}
+     
     
        
       </div>
