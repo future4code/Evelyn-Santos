@@ -4,6 +4,8 @@ import { render } from "@testing-library/react";
 import CriarPlaylist from "./components/CriarPlaylist";
 import ListaPlaylist from "./components/ListaPlaylist";
 
+// 
+
 
 
 export default class App extends React.Component {
@@ -13,7 +15,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount(){
-    this.getAllPlaylist()
+    this.getAllPlaylists()
   }
 
   
@@ -57,9 +59,19 @@ export default class App extends React.Component {
  
 
   render(){
+
+    const gotPlaylist = this.state.playlist.map((playlist) => {
+      return <li key={playlist.id}>{playlist.name}</li>
+    })
+
+
+
     return(
       <div>
-        console.log({this.getAllPlaylists()})
+        <ListaPlaylist></ListaPlaylist>
+
+        
+      {this.gotPlaylist}
     
        
       </div>
