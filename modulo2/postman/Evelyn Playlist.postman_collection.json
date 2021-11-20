@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "a8682222-f074-4735-848d-dbac0dcebd20",
+		"name": "Evelyn Playlist",
+		"description": "## Descrição\n</br>Esta API gerencia playlists e músicas.\n```\n\tFeito pela Labenu. Todos os direitos reservados\n```\n\n## Instruções gerais.\n\n**Autenticação**\n\nToda requisição deve ter uma identificação de quem está fazendo a requisição. Ela deve ser enviada por meio do header `Authorization`, da seguinte forma:\n\n`Authorization: \"nome-sobrenome-turma\"`\n\nPor exemplo, se meu nome é Bob Marley e eu sou da turma Newton, o header deve ser:\n\n`Authorization: \"bob-marley-newton\"`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllPlaylist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "evelyn-oliveira-carver",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchPlaylist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "evelyn-oliveira-carver"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=string\n",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "string\n"
+						}
+					]
+				},
+				"description": "### Descrição:\nEssa requisição parmite pesquisar por uma playlist, usando o nome dela ou parte dele.\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n\n**Query String**\n<br/> `name`: nome da playlist ou parte dele (obrigatório)\n```\n\tname:\"string\" \n```\n\n### Output:\n**Body**\n<br/> `quantity`: quantidade de playlists encontradas\n<br/> `list`: array com as playlists\n<br/> `id`: id de cada playlist\n<br/> `name`: nome de cada playlist\n```\n{\n    \"result\": {\n    \t\"quantity\": \"number\", \n        \"list\": [\n            {\n                \"id\": \"string\", \n                \"name\": \"string\" \n            }\n        ]\n    }\n}\n```\n\n\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getPlaylistTracks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "evelyn-oliveira-carver"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "e8a7530e-214a-4bd4-8bc7-f23ed3870101"
+						}
+					]
+				},
+				"description": "### Descrição:\nEsta requisição permite verificar quais músicas estão em uma determinada playlist\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n\n**Path Param**\n<br/>`playlistId`: id da playlist (obrigatório)\n\n### Output:\n**Body**\n<br/> `quantity`: quantidade de músicas da playlist\n<br/> `tracks`: array com as informações das músicas\n<br/> `id`: id de cada música\n<br/> `name`: nome de cada música\n<br/> `artist`: cantor ou band da música\n<br/>`url`: URL da música para ser tocada\n```\n{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"tracks\": [ \n            {\n                \"id\": \"string\", \n                \"name\": \"string\", \n                \"artist\": \"string\",\n                \"url\": \"string\"\n            }\n        ]\n    }\n}\n```\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "createPlaylist1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "evelyn-oliveira-carver",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Lockdown Queen\",\n\t\"artist\": \"Roisin Murphy\",\n\t\"url\": \"https://www.youtube.com/watch?v=ZdchN81AkrA\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "### Descrição:\nEssa requisição cria uma nova playlist. \n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n**Body**\n<br/>`name`: nome da playlist (obrigatório)\n```\n{\n\t\"name\": \"string\" \n}\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "createPlaylist2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "evelyn-oliveira-carver",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"What's your pleasure\",\r\n\t\"artist\": \"Jessie Ware\",\r\n\t\"url\": \"https://www.youtube.com/watch?v=qS_o7XpnEqA\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTracktoPlaylist1a",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "evelyn-oliveira-carver",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Overpowered\",\r\n\t\"artist\": \"Roisin Murphy\",\r\n\t\"url\": \"https://www.youtube.com/watch?v=ysIl0qMK1ps\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "e8a7530e-214a-4bd4-8bc7-f23ed3870101"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTracktoPlaylist1b",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "evelyn-oliveira-carver",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Narcissus\",\r\n\t\"artist\": \"Roisin Murphy\",\r\n\t\"url\": \"https://www.youtube.com/watch?v=88p6AwgZNaw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "e8a7530e-214a-4bd4-8bc7-f23ed3870101"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTrackToPlaylist1c",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "evelyn-oliveira-carver",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Incapable\",\r\n\t\"artist\": \"Roisin Murphy\",\r\n\t\"url\": \"https://www.youtube.com/watch?v=H02BPY7vEms\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "e8a7530e-214a-4bd4-8bc7-f23ed3870101"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeTrackPlaylist1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "evelyn-oliveira-carver",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks",
+						":trackId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "e8a7530e-214a-4bd4-8bc7-f23ed3870101"
+						},
+						{
+							"key": "trackId",
+							"value": "ca08e059-0282-4657-b0ee-57bcde2901c5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
