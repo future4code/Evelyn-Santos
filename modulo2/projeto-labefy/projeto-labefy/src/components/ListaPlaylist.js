@@ -18,9 +18,8 @@ padding: 10px;
 
 export default class ListaPlaylist extends React.Component {
     state = {
-        playlists: [],
-        id: ""
-
+        playlists: []
+        
     }
 
     componentDidMount = () => {
@@ -32,7 +31,7 @@ export default class ListaPlaylist extends React.Component {
             const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
             const resposta = await axios.get (url, {
                 headers: {
-                    authorization: "evelyn-oliveira-carver"
+                    Authorization: "evelyn-oliveira-carver"
                 }
             })
             this.setState({playlists:resposta.data.result.list})
@@ -43,6 +42,19 @@ export default class ListaPlaylist extends React.Component {
             console.log(erro)
         }
     }
+
+    // deletadoPlaylist = async () => {
+    //     const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists${id}'
+    //     axios.delete(url, {
+    //         headers:{
+    //             Authorization: "evelyn-oliveira-carver"
+    //         }
+    //     }).then((res)=> {
+    //         this.setState({playlists: res.data})
+    //     }). catch ((err)=> {
+    //         alert("Ocorreu um erro!")
+    //     })
+    // }
     
     
     deletarPlaylists = async (id) => {
@@ -50,7 +62,7 @@ export default class ListaPlaylist extends React.Component {
         alert("Playlist deletada com sucesso!")
 
         try {
-            const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists${id}'
+            const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}'
             const resposta = await axios.delete(url, {
                 headers: {
                     Authorization: "evelyn-oliveira-carver"
