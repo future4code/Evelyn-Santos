@@ -8,6 +8,7 @@ flex-direction: column;
 align-items: center;
 margin-bottom: 10px;
 justify-items: flex-start;
+
 `
 
 function CardGrande(props) {
