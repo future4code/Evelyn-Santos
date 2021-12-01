@@ -1,8 +1,9 @@
-import './App.css';
 import axios from "axios";
-import {useState, useEffect, Profiler} from "react";
+import styled from "styled-components";
+import {useState, useEffect} from "react";
 import HomePage from './Components/HomePage';
 import MatchesPage from './Components/MatchesPage';
+
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
  
   return (
     <div>
+      
       {changePage()}
     </div>
   );

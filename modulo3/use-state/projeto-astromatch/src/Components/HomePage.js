@@ -1,9 +1,34 @@
 import axios from "axios";
+import styled from "styled-components";
 import {useState, useEffect} from "react";
+
+
+const Container = styled.div `
+border: 1px solid black;
+border-radius: 6px;
+width: 400px;
+height: 600px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+position: absolute;
+
+`
+
+const Header = styled.div`
+display: flex;
+justify-content: space-between;
+margin-top: 2%;
+margin-bottom: 2%;
+
+
+
+`
 
 function HomePage () {
  
   const [profile, setProfile] = useState ({})
+
 
 
   const getProfile = () => {
@@ -14,7 +39,7 @@ function HomePage () {
 
       })
       .catch((erro) => {
-        console.log(erro.response)
+        alert(erro.response)
       })
   }
 
@@ -22,15 +47,29 @@ function HomePage () {
     getProfile()
   }, [])
 
-  return (
-    <div>
-      {
-        profile.id ? 
-        <p>{profile.name}</p> : 
-        <p>Perfil não encontrado!</p>
+  
+  const heartButton = () => {
+    console.log("funciona")
+  }
+  
+  const xButton = () => {
+    console.log("não deu")
 
-      }
-    </div>
+  }
+
+  return (
+    <Container>
+      <Header>
+        {/* <p>ASTROMATCH</p> <button onClick={props.goToMatch}> Match</button> */}
+      </Header>
+      { profile.id ? <p>{profile.name}</p> : <p>Perfil não encontrado!</p> }
+      { profile.photo ? <p>{profile.photo}</p> : <p>Perfil não encontrado!</p> }
+
+      <div>
+        <button onClick={heartButton}>H</button>
+        <button onClick={xButton}>X</button>
+      </div>
+    </Container>
 
 
     
