@@ -22,6 +22,24 @@ margin-top: 2%;
 margin-bottom: 2%;
 
 
+`
+
+const ButtonH = styled.button`
+border: 1px solid green;
+border-radius: 50%;
+width: 70px;
+height: 70px;
+color: green;
+
+
+`
+
+const ButtonX = styled.button`
+border: 1px solid red;
+border-radius: 50%;
+width: 70px;
+height: 70px;
+color: red;
 
 `
 
@@ -63,11 +81,11 @@ function HomePage () {
         {/* <p>ASTROMATCH</p> <button onClick={props.goToMatch}> Match</button> */}
       </Header>
       { profile.id ? <p>{profile.name}</p> : <p>Perfil não encontrado!</p> }
-      { profile.photo ? <p>{profile.photo}</p> : <p>Perfil não encontrado!</p> }
+      { profile.photo ? <p>{profile.photo}</p> : <p>Erro</p> }
 
       <div>
-        <button onClick={heartButton}>H</button>
-        <button onClick={xButton}>X</button>
+        <ButtonH onClick={heartButton}>H</ButtonH>
+        <ButtonX onClick={xButton}>X</ButtonX>
       </div>
     </Container>
 
