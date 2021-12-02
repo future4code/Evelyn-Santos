@@ -1,8 +1,23 @@
 import axios from "axios";
+import {createGlobalStyle} from "styled-components";
 import styled from "styled-components";
 import {useState, useEffect} from "react";
 import HomePage from './Components/HomePage';
 import MatchesPage from './Components/MatchesPage';
+
+
+const GlobalStyle = createGlobalStyle`
+html {
+    min-height: 100%;
+}
+body {
+margin:0;
+padding:0;
+background: linear-gradient(#eeaeca, #94e9c0);
+
+
+}
+`
 
 
 
@@ -37,7 +52,8 @@ function App() {
 
  
   return (
-    <div>
+    <div className="App">
+      <GlobalStyle/>
       
       {changePage()}
     </div>
