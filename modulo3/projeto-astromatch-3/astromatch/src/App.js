@@ -1,10 +1,7 @@
-import axios from "axios";
 import {createGlobalStyle} from "styled-components";
-import styled from "styled-components";
 import {useState, useEffect} from "react";
 import HomePage from './Components/HomePage';
-import MatchesPage from './Components/MatchesPage';
-
+import MatchPage from './Components/MatchPage';
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -20,7 +17,6 @@ background: linear-gradient(#eeaeca, #94e9c0);
 `
 
 
-
 function App() {
 
   const [page, setPage] = useState("HomePage")
@@ -31,8 +27,8 @@ function App() {
       case "HomePage":
         return <HomePage
         goToMatch={goToMatch}/>
-      case "MatchesPage":
-        return <MatchesPage
+      case "MatchPage":
+        return <MatchPage
         goToHome={goToHome}/>
       default: 
       return <div>Página não encontrada!</div>  
@@ -41,18 +37,21 @@ function App() {
   }
 
   const goToMatch = () => {
-  setPage("MatchesPage")
+  setPage("MatchPage")
   }  
 
   const goToHome = () => {
   setPage("HomePage")
   }
-  
 
 
- 
+
+
+
   return (
     <div>
+
+
       <GlobalStyle/>
       
       {changePage()}
