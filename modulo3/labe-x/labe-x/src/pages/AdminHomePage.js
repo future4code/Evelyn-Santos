@@ -1,18 +1,21 @@
-import react from "react";
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 
-const AdminHomePage = () => {
-    return<div>
-        <h1>Painel do Admin</h1>
-        <Link to="/">Voltar</Link>
-        <Link to="/admin/trips/create">Criar Viagem</Link>
-        
-        <button>Logout</button>
+function AdminHomePage () {
 
+    const history = useHistory()
+
+    const loginAdmin = () => {
+        history.push("/admin-trips-list")
+    }
+  
+
+return(
+    <div>
+    <h3>Area Admin</h3>
+    <button onClick={loginAdmin}>Voltar</button>
     </div>
-
-
+)
 
 }
 

@@ -1,14 +1,34 @@
-import react from "react";
-import {Link} from "react-router-dom"
+import axios from "axios";
+import {useEffect} from "react";
+
 
 
 
 const TripDetailsPage = () => {
-    return<div>
-        <h1>Detalhes da Viagem</h1>
-        <Link to="/admin/trips/list">Voltar</Link>
-    </div>
 
+
+    useEffect (() => {
+        const token = localStorage.getItem("token")
+        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/evelyn-oliveira-carver/trips/:id", {
+            headers: {
+                authorization: token
+            }
+        })
+        .then ((res)=> {
+            console.log(res.data);
+        })
+        .catch((err)=> {
+            console.log(err.res)
+        })
+    })
+    return (
+
+        <div>{TripDetailsPage}</div>
+
+
+    )
+    
+   
 
 
 }

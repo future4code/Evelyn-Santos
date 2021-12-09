@@ -1,16 +1,28 @@
-import react from "react";
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import Header from "../components/Header";
 
 const HomePage = () => {
-    return <div>
-<Header/>
-<Router>
-<h1> Bem Vindes a Labe-X</h1>
-<Link to="/admin/trips/lists">Viagens</Link>
-<Link to="admin">Area do Admin</Link>
-</Router>
-    </div>
+
+    const history = useHistory ()
+
+    const seeTrip = () => {
+        history.push("/trips/:list")
+    }
+
+
+    const adminPage = () => {
+        history.push("/login")
+    }
+
+
+    return (
+        <div>
+            <Header/>
+            <button onClick={seeTrip}>Ver Viagens</button>
+            <button onClick={adminPage}>Area Admin</button>
+        </div>
+    )
+   
 }
 
 export default HomePage;

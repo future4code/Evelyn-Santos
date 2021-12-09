@@ -1,18 +1,24 @@
-// import react from "react";
-// import styled from "styled-components"
+import react from "react";
+import styled from "styled-components"
 
-// const Footer = styled.footer`
-// border: 1px solid black;
+const FooterBox = styled.footer`
+  position: fixed;
+  padding: 3px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #28013c;
+  color: white;
+  text-align: center;
+`
 
-// `
 
-
-// const Footer = () => {
-//     return (
+const Footer = () => {
+    return (
         
-//             <h3>Footer</h3>
+            <FooterBox>bananinha group - todos os direitos reservados</FooterBox>
         
-//     )
-// }
+    )
+}
 
-// export default Footer;
+export default Footer;

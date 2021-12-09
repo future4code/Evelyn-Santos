@@ -1,32 +1,60 @@
-import react from "react";
-import {BrowserRouter, Routes, Router, Link} from "react-router-dom";
-import HomePage from "./pages/AdminHomePage";
-import LoginPage from "./pages/LoginPage";
-import ListTripsPage from "./pages/ListTripsPage";
-import ApplicationFormPage from "./pages/ApplicationFormPage";
-import AdminHomePage from "./pages/AdminHomePage";
-import TripDetailsPage from "./pages/TripDetailsPage";
-import CreatePage from "./pages/CreatePage";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import HomePage from "../pages/HomePage";
+import LoginPage from "../pages/LoginPage";
+import ListTripsPage from "../pages/ListTripsPage";
+import ApplicationFormPage from "../pages/ApplicationFormPage";
+import AdminHomePage from "../pages/AdminHomePage";
+import TripDetailsPage from "../pages/TripDetailsPage";
+import CreateTripPage from "../pages/CreateTripPage";
 
-export const Routers = () => {
+function Router() {
     return (
-        <BrowserRouter>
-    
-      <Routes>
-        <Route exact path={"/"} element={<HomePage/>}/>
-        <Route exact path={"adminhome"} element={<AdminHomePage/>}/>
-        <Route exact path={"trips"} element={<ListTripsPage/>}/>
-        <Route exact path={"/admin"} element={<LoginPage/>}/>
-        <Route exact path={"/form"} element={<ApplicationFormPage/>}/>
-        <Route exact path={"/tripdetail"} element={<TripDetailsPage/>}/>
-        <Route exact path={"/createtrip"} element={<CreatePage/>}/>
-      </Routes>
+        
+        <div>
+           
+            <BrowserRouter>
+            
+            
+                <Switch>
+                    <Route exact path={"/"}>
+                        <HomePage />
+                    </Route>
 
+                    <Route exact path={"/trips/:list"}>
+                        <ListTripsPage />
+                    </Route>
 
-    
-    </BrowserRouter>
+                    <Route exact path={"/trips-application"}>
+                        <ApplicationFormPage />
+                    </Route>
+
+                    <Route exact path={"/admin-trips-list"}>
+                        <AdminHomePage />
+                    </Route>
+
+                    <Route exact path={"/login"}>
+                        <LoginPage />
+                    </Route>
+
+                    <Route exact path={"/admin/trips/:id"}>
+                        <TripDetailsPage />
+                    </Route>
+
+                    <Route exact path={"/admin-trips-create"}>
+                        <CreateTripPage />
+                    </Route>
+                  
+
+                </Switch>
+
+                <Footer/>
+            </BrowserRouter>
+        </div>
 
     )
 
 }
 
+export default Router;

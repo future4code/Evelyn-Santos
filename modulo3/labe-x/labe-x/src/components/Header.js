@@ -1,18 +1,22 @@
-// import react from "react";
-// import styled from "styled-components"
+import styled from "styled-components"
+import logo from "../img/logo.png"
 
-// const Header = styled.header`
-// border: 1px solid black;
-
-// `
+const HeaderBox = styled.header`
 
 
-// const Header = () => {
-//     return (
+`
+
+
+const Header = () => {
+    return (
+            
+            <HeaderBox>
+                <img src={logo}/> 
+                
+                
+            </HeaderBox>
         
-//             <h3>Header</h3>
-        
-//     )
-// }
+    )
+}
 
-// export default Header;
+export default Header;
