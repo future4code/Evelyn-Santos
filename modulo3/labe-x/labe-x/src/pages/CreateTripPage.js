@@ -1,33 +1,44 @@
-import {useHistory} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
+// import {useForm} from "../../hooks/useForm"
 
 
-const CreateTripPage = () => {
+// const CreateTripPage = () => {
+    
+//     useProtectPage()
 
-    const history = useHistory()
+//     const history = useHistory()
+//     const {form, onChangeInput, clearInput } = useForm ({name:"", planet: "", date: "", description: "", durationInDays:""})
 
-    const goBackAdmin = () => {
-        history.goBack()
-    }
+//     const goBack = () => {
+//         history.goBack()
+//     }
 
-    return (
-        <div>
-            <h1>Escolha um Destino</h1>
-            <input/>
-            <input/>
-            <input/>
+//     const createTrip = (event) => {
+//         event.preventDefault();
+//         console.log("Viagem cadastrada!", form)
+//         clearInput();
+
+//     }
+
+//     return (
+//         <div>
+//             <h1>Escolha um Destino</h1>
+//             <input/>
+//             <input/>
+//             <input/>
        
 
             
 
-            <button onClick={goBackAdmin}>Voltar</button>
-            <button>Criar Viagem</button>
-        </div>
-    )
+//             <button onClick={goBack}>Voltar</button>
+//             <button>Criar Viagem</button>
+//         </div>
+//     )
 
     
 
 
 
-}
+// }
 
-export default CreateTripPage;
+// export default CreateTripPage;

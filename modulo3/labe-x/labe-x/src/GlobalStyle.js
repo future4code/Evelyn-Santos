@@ -30,14 +30,14 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover{
       cursor: pointer;
-      background-color: #b6d4e3;
+      background-color: #fc3ff2;
     }
 
 
     }
 
     h1, h2, b {
-    color: slategray;
+    color: #8417dd;
   }
 
   h1 {
@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    color: #394145;
+    color:#8f908f;
     font-family: Open-Sans, Helvetica, Sans-Serif;
   }
 
@@ -71,13 +71,8 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
 }
    
-
-
-/* @font-face {
-     font-family: 'Nunito', sans-serif;
-     src: url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Mukta:wght@600&family=Nunito:wght@300&family=Rubik:wght@500&display=swap');
-  } */
 `
+
 
 
 export default GlobalStyle;

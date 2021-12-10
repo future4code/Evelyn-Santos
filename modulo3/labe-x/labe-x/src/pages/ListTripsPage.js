@@ -1,16 +1,14 @@
 import {useHistory} from "react-router-dom";
 import {useState, useEffect} from "react";
-import { TripsCard } from "../components/TripsCard";
-// import {BASE_URL} from "/../constant/url"
+import {TripsCard} from "../styles";
+import {CardContainer} from "../styles";
+import {ButtonList} from "../styles";
 import axios from "axios";
 import styled from "styled-components";
+import Header from "../components/Header";
 
 
 
-const CardTrip = styled.div`
-display: flex;
-
-`
 
 const ListTripsPage = () => {
 
@@ -22,43 +20,30 @@ const ListTripsPage = () => {
         .get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/evelyn-oliveira-carver/trips')
         .then(res => {
             setTrips(res.data.trips)
-            let newListTrips = [...cards]
-            const showList = newListTrips.map(item=> {
-                return (
-                    
-                    <CardTrip key={item.id}>
-                    
-                    <h1>{item.name}</h1>
-                    <p>
-                    {item.description}
-                    {item.planet}
-                    {item.durationInDays}
-                    {item.date}
-                    </p>   
-                    </CardTrip>  
-
-                )
-                
-            })
+            console.log(res.data.trips)
+            
+            
         })
         .catch(err => {
             console.log(err, "erro lista")
         }, [])
     }
 
+    
 
-
-
-
-    // const getTrips = () => {
-    //     axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/evelyn-oliveira-carver/trips`)
-    //     .then((res)=> {
-    //         setTrips (res.data)
-    //     })
-    //     .catch((err)=> {
-    //         console.log(err)
-    //     })
-    // }
+    const showList = trips.map((item) => {
+        return (
+            <TripsCard>
+            <h2>{item.name}</h2>
+            <p> <b>Planeta: </b>{item.planet}</p>
+            <p> <b>Descrição: </b>{item.description}</p>
+            <p> <b>Duração em dias: </b >{item.durationInDays}</p>
+            <p> <b>Data: </b>{item.date}</p>
+            </TripsCard>
+        )
+    })
+       
+    
 
     useEffect(()=> {
         getTrips();
@@ -77,34 +62,33 @@ const ListTripsPage = () => {
 
     console.log(trips)
 
-
     return (
+        
         <div>
+            <Header/>
+            
 
-      
+        <h2>Pacotes de Viagens</h2> 
 
-        <h2>Lista de Viagens</h2>
-
-        {cards ? (cards.map(item=> {
-            return(
-                <TripsCard key={item.id}>
-                <h2>{item.description}</h2>
-                <h2>{item.planet}</h2>
-                <h2>{item.duratioInDays}</h2>
-                <h2>{item.date}</h2>
-                </TripsCard>
-            )
-        })
-    ) : ( 
-     <p>Aguarde</p>
-    )}
+        <CardContainer>
+        {showList}
+        </CardContainer>
+        
+         
+        
+        <ButtonList>
+        <button onClick={applicationForm}>Increva-se</button>
+        <button onClick={goBackHome}>Voltar</button>
+        
+        </ButtonList>
         
 
-        <button onClick={goBackHome}>Voltar</button>
-        <button onClick={applicationForm}>Increva-se</button>
+
         </div>
+
+
+
     )
-    
 
 
 }

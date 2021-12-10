@@ -19,53 +19,61 @@ const LoginPage = () => {
         setPassword(event.target.value)
     }
 
+    const history = useHistory()
+
+    const goBack = () => {
+        history.goBack()
+    }
+
+    const logAdmin = () => {
+        history.push("/admin/trips/list")
+    }
+
     const signIn = () => {
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/evelyn-oliveira-carver/login"
         const body = {
             email: email,
             password: password
         }
-        console.log(email,password)
+        console.log(email, password)
+        axios.post(url, body)
+            .then((res) => {
+                console.log(res.data.token, "entrou");
+                localStorage.setItem("token", res.data.token)
+
+                history.push("/admin/trips/list")
+            })
+            .catch((err) => {
+                console.log(err.res, "deu erro")
+            })
+
+
     }
-    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/evelyn-oliveira-carver/login`,)
-    .then ((res)=> {
-        console.log(res.data.token);
-        localStorage.setItem("token", res.data.token);
-        history.push("/admin/trips/list")
-    })
-    .catch((err) => {
-        console.log(err.res)
-    })
 
 
-
-    const history = useHistory()
-
-    const goBackHome = () => {
-        history.goBack()
-    }
 
     return (
-                <LoginBox>
-                <Header/>
-                
-                <input
+        <LoginBox>
+            <Header />
+
+            <input
                 placeholder={"E-mail"}
                 type="email"
                 value={email}
-                onChange={onChangeEmail}/>
-                
-                <input
+                onChange={onChangeEmail} />
+
+            <input
                 placeholder={"Senha"}
                 type="password"
                 value={password}
-                onChange={onChangePassword}/>
+                onChange={onChangePassword} />
 
-                <button>Entrar</button>
+            <button onClick={signIn}>Entrar</button>
 
-                <button onClick={goBackHome}>Voltar</button>
-                
-                
-                </LoginBox>
+            <button onClick={goBack}>Voltar</button>
+
+
+        </LoginBox>
 
 
 

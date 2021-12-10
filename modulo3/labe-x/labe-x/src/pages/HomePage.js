@@ -1,5 +1,7 @@
 import {useHistory} from "react-router-dom";
 import Header from "../components/Header";
+import {HomeBox} from "../styles";
+import logo from "../img/logo.png"
 
 const HomePage = () => {
 
@@ -16,11 +18,16 @@ const HomePage = () => {
 
 
     return (
-        <div>
-            <Header/>
+        
+            <HomeBox>
+                
+            <img src={logo}/> 
+            <div>
             <button onClick={seeTrip}>Ver Viagens</button>
-            <button onClick={adminPage}>Area Admin</button>
-        </div>
+            <button onClick={adminPage}>Área Admin</button>
+            </div>
+            </HomeBox>
+        
     )
    
 }
