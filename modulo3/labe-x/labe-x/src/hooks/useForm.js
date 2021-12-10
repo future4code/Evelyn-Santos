@@ -1,19 +1,19 @@
-// import {useState} from "react",
+import {useState} from "react";
 
-// export const useForm = (firstState) => {
-//     const [form, setForm] = useState(firstState);
+export const useForm = (firstState) => {
+    const [form, setForm] = useState(firstState);
 
-//     const onChangeInput = (event) => {
-//         const {name, value} = event.target;
-//         setForm({...setForm, [name]: value});
-//     }
+    const onChangeInput = (event) => {
+        const {name, value} = event.target;
+        setForm({...setForm, [name]: value});
+    }
 
 
-//     const clearInput = () => {
-//         setForm(firstState);
-//     }
+    const clearInput = () => {
+        setForm(firstState);
+    }
 
-//     return {form, onChangeInput, clearInput}
+    return {form, onChangeInput, clearInput}
 
-// }
+}
 

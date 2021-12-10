@@ -1,10 +1,10 @@
 // import {useHistory} from "react-router-dom";
-// import {useForm} from "../../hooks/useForm"
+// import {useForm} from "../hooks/useForm"
 
 
-// const CreateTripPage = () => {
+// export const CreateTripPage = () => {
     
-//     useProtectPage()
+//     // useProtectPage()
 
 //     const history = useHistory()
 //     const {form, onChangeInput, clearInput } = useForm ({name:"", planet: "", date: "", description: "", durationInDays:""})
@@ -37,8 +37,5 @@
 
     
 
-
-
 // }
-
 // export default CreateTripPage;
