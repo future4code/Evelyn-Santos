@@ -1,8 +1,7 @@
 import axios from "axios";
-import styled from "styled-components";
 import {useState, useEffect} from "react";
+import styled from 'styled-components';
 import logo from "./img/logo.png"
-
 
 
 
@@ -10,7 +9,7 @@ const Container = styled.div `
 border: 1px solid black;
 border-radius: 6px;
 width: 400px;
-height: 600px;
+height: 670px;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
@@ -23,7 +22,7 @@ button{
   cursor: pointer;
   width: 50px;
  height: 50px;
- background-color: blue;
+
 }
 
 
@@ -37,9 +36,9 @@ margin-bottom: 2%;
 
 button{
   text-align: center;
-  border-radius: 30px;
-  width: 50px;
- height: 50px;
+  border-radius: 40px;
+  width: 60px;
+ height: 60px;
  background-color: pink;
 }
 
@@ -66,8 +65,8 @@ color: red;
 
 `
 
+
 function HomePage (props) {
- 
   const [profile, setProfile] = useState ({})
   const [photo, setPhoto] = useState ({})
   const [name, setName] = useState ({})
@@ -109,29 +108,30 @@ function HomePage (props) {
 
   }
 
+
   return (
-    
-    
     <Container>
-      <Header>
-        <img src={logo}/> <button onClick={props.goToMatch}> Matches</button>
-      </Header>
-      
-     
-      <img src={photo} width="400" height="360"/>
-      { profile.id ? <p>{profile.name}</p> : <p>Perfil não encontrado!</p> } 
-      <div><h3>{profile.name}</h3><p>{age}</p></div>
-      
-      
-
-      <div>
-        <ButtonH onClick={heartButton}>❤</ButtonH>
-        <ButtonX onClick={xButton}>✖</ButtonX>
-      </div>
-    </Container>
-
-
+    <Header>
+      <img src={logo}/> 
+      <button onClick={props.goToMatch}> Matches</button>
+    </Header>
     
+   
+    <img src={photo} width="400" height="360"/>
+    { profile.id ? <p>{profile.name}</p> : <p>Perfil não encontrado!</p> }
+    <h3>{profile.name}</h3>
+    <p>{age}</p>
+    <div>{bio}</div>
+     
+    
+
+    <div>
+      <ButtonH onClick={heartButton}>❤</ButtonH>
+      <ButtonX onClick={xButton}>✖</ButtonX>
+    </div>
+  </Container>
+
+
   )
 
 
@@ -139,16 +139,6 @@ function HomePage (props) {
 
 
 
-
-
-
-
-
-
-
-
-
 }
-
 
 export default HomePage;
