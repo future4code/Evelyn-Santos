@@ -6,10 +6,12 @@ import useForm from "../../hooks/useForm"
 import Button from "@material-ui/core/Button"
 import { goToSignUp } from "../../routes/coordinators";
 import {useHistory} from "react-router-dom";
-import axios from "axios";
-import {BASE_URL} from "../../constants/urls"
+import {login} from "../../services/user"
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
-function LoginPage() {
+
+function LoginPage({anotherLog, setAnotherLog}) {
+    // useUnprotectedPage()
 
     const history = useHistory()
 
@@ -17,21 +19,19 @@ function LoginPage() {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        login()
+        login(form, clear, history, setAnotherLog)
 
     }
 
-    const login = () => {
-        axios.post (`${BASE_URL}/user/login`, form)
-        .then((res)=>console.log(res))
-        .catch((err)=>console.log(err, "erro"))
-    }
+
 
     return (
         <ScreenContainer>
             <LogoImage src={logo}></LogoImage>
             <InputsContainer>
-                <form onSubmit={onSubmitForm}>
+                <form  
+                onSubmit={onSubmitForm}
+                anotherLog={anotherLog} setAnotherLog={setAnotherLog} >
                     <TextField
                         name={"email"}
                         value={form.email}
@@ -75,7 +75,7 @@ function LoginPage() {
                         variant={"outlined"}
                         color={"primary"}
 
-                    >Cadastro</Button>
+                    >Faça seu Cadastro</Button>
 
                 </SignUpButtonContainer>
 

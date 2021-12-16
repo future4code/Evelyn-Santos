@@ -5,26 +5,41 @@ import Button from '@mui/material/Button';
 import {goToRecipes, goToLogin} from "../../routes/coordinators"
 import {ToolbarStyle} from './styled'
 import {useHistory} from "react-router-dom";
+import {useState} from "react"
+import { clear } from '@testing-library/user-event/dist/clear';
 
 
 
-function Header() {
+function Header({anotherLog, setAnotherLog}) {
+    
+    
     const history = useHistory()
+    const token = localStorage.getItem("token")
+   
+
+    const logout = () => {
+      localStorage.removeItem("token")
+
+    }
+
+    const anotherLogAction = () => {
+      if (token) {
+        logout()
+        setAnotherLog("Login")
+        goToLogin(history)
+      }
+      else {
+        goToLogin(history)
+      }
+
+    }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <ToolbarStyle>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
+
           <Button onClick={()=>goToRecipes(history)} color="inherit">Cookenu</Button>
-          <Button onClick={()=>goToLogin(history)} color="inherit">Login</Button>
+          <Button onClick={anotherLogAction} color="inherit">{anotherLog}</Button>
         </ToolbarStyle>
       </AppBar>
     </Box>

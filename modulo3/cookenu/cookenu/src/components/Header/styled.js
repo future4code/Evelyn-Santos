@@ -6,5 +6,5 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 height: 50px;
-background-color: #eeac2e;
+background-color: #f55151;
 `

@@ -1,25 +1,25 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import AddRecipePage from "../pages/AddRecipePage/AddRecipePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RecipeDetailPage from "../pages/RecipeDetailPage/RecipeDetailPage";
 import RecipesPage from "../pages/RecipesPage/RecipesPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import Header from "../components/Header/Header"
 
 
-function Router () {
+
+function Router ({anotherLog, setAnotherLog}) {
     return (
-        <BrowserRouter>
-        <Header/>
+        
+        
         <Switch>
             <Route exact path="/login">
-                <LoginPage/>
+                <LoginPage setAnotherLog={setAnotherLog}/>
             </Route>
 
             <Route exact path="/cadastro">
-                <SignUpPage/>
+                <SignUpPage setAnotherLog={setAnotherLog}/>
             </Route>
 
             <Route exact path="/adicionar">
@@ -41,7 +41,7 @@ function Router () {
         </Switch>   
         
         
-        </BrowserRouter>
+        
 
     )
 
