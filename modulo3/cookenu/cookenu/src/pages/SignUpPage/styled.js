@@ -38,4 +38,5 @@ export const SignUpFormContainer = styled.div`
   align-items: center;
   margin-bottom: 15px;
   
+  
 `

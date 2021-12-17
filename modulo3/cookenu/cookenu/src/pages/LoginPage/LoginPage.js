@@ -6,20 +6,24 @@ import useForm from "../../hooks/useForm"
 import Button from "@material-ui/core/Button"
 import { goToSignUp } from "../../routes/coordinators";
 import {useHistory} from "react-router-dom";
+import {useState} from "react"
 import {login} from "../../services/user"
 import useUnprotectedPage from "../../hooks/useUnprotectedPage";
+import { CircularProgress } from "@material-ui/core";
 
 
 function LoginPage({anotherLog, setAnotherLog}) {
-    // useUnprotectedPage()
+    useUnprotectedPage()
 
     const history = useHistory()
+
+    const [loading, setLoading] = useState(false)
 
     const [form, onChange, clear] = useForm({ email: "", password: "" })
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        login(form, clear, history, setAnotherLog)
+        login(form, clear, history, setAnotherLog, setLoading)
 
     }
 
@@ -62,7 +66,7 @@ function LoginPage({anotherLog, setAnotherLog}) {
                         variant={"contained"}
                         color={"primary"}
 
-                    >Fazer Login</Button>
+                    >{loading ? <CircularProgress color={"inherit"} size={24}/> : <>Fazer Login</>}</Button>
 
 
                 </form>
@@ -75,7 +79,8 @@ function LoginPage({anotherLog, setAnotherLog}) {
                         variant={"outlined"}
                         color={"primary"}
 
-                    >Faça seu Cadastro</Button>
+                    >Faça seu Cadastro
+                    </Button>
 
                 </SignUpButtonContainer>
 
