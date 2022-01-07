@@ -8,8 +8,7 @@ const Header = () => {
   let navigate = useNavigate();
   return (
     <>
-      {window.location.pathname === "/" ||
-      window.location.pathname === "/pokedex" ? (
+     
         <DivHeader>
           <LogoImg onClick={() => goToHome(navigate)} src={logo} />
           <Menu>
@@ -19,9 +18,7 @@ const Header = () => {
             </ButtonHeader>
           </Menu>
         </DivHeader>
-      ) : (
-        ""
-      )}
+   
     </>
   );
 };

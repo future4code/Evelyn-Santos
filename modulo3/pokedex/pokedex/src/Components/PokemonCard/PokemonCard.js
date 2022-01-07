@@ -5,6 +5,7 @@ import { Card, CardImg } from "./Style";
 import GlobalContext from "../../Contexts/GlobalContext";
 import { goToDetails } from "../../Routes/Coordinator";
 import { useNavigate } from "react-router-dom";
+import { addPokedex } from "../../Services/addPokemon";
 
 export default function CardPokemon({ name, pokemon, addPokedex }) {
   const navigate = useNavigate();
@@ -13,10 +14,10 @@ export default function CardPokemon({ name, pokemon, addPokedex }) {
 
   const getInfoPokemon = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}${name}`);
+      const res = await axios.get(`${BASE_URL}/${name}`);
       setPhotoPokemon(res.data.sprites.front_default);
     } catch (err) {
-      console.log(err);
+      console.log("erro", err.response);
     }
   };
 
@@ -26,12 +27,15 @@ export default function CardPokemon({ name, pokemon, addPokedex }) {
 
   return (
     <Card>
-      <div onClick={() => goToDetails(navigate, name)}>
+      <div>
         <CardImg src={photoPokemon} />
         <p>{name}</p>
       </div>
       <button onClick={() => addPokedex(pokemon, setPokedex)}>
-        Adicionar a Pokedex
+        Add to Pokedex
+      </button>
+      <button onClick={() => goToDetails(navigate, name)}>
+        See Details
       </button>
     </Card>
   );

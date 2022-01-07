@@ -7,8 +7,10 @@ import GlobalContext from "../../Contexts/GlobalContext";
 import { addPokedex } from "../../Services/addPokemon";
 import { removePokedex } from "../../Services/removePokemon";
 
+
 const HomePage = () => {
-  const [pokemons] = useRequestData(`?offset=0&limit=30`);
+  const [pokemons] = useRequestData(`?offset=0&limit=40`);
+  const [pokemonPhoto] = useRequestData(`${pokemons?.url}`);
   const { pokedex } = useContext(GlobalContext);
 
   useEffect(() => {}, [pokedex]);
@@ -41,6 +43,7 @@ const HomePage = () => {
 
   return (
     <div>
+      
       <PokemonList>{pokemonsList}</PokemonList>
     </div>
   );

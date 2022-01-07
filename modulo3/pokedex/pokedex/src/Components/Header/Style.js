@@ -31,12 +31,14 @@ export const Menu = styled.div`
 
 export const ButtonHeader = styled.button`
   width: 7rem;
-  height: 2rem;
-  font-size: 1rem;
+  height: 28px;
+  font-size: 14px;
+  font-family: "Verdana";
   margin-left: 20px;
   border: none;
   border-radius: 12px;
-  background: #f2f2f2;
+  cursor: pointer;
+  background: #E4E6CC;
   :hover {
    background-color: #FFDE00;
   }
