@@ -5,7 +5,7 @@ import { goToRecipes } from "../routes/coordinators";
 
 export const login = (body, clear, history, setAnotherLog, setLoading) => {
     setLoading(true)
-    axios.post (`${BASE_URL}/user/login`, body)
+    axios.post (`${BASE_URL}/login`, body)
     .then((res)=>{
         localStorage.setItem("token", res.data.token)
         clear()
@@ -21,7 +21,7 @@ export const login = (body, clear, history, setAnotherLog, setLoading) => {
 }
 
 export const signUp = (body, clear, history) => {
-    axios.post (`${BASE_URL}/user/signup`, body)
+    axios.post (`${BASE_URL}/signup`, body)
     .then((res)=>{
         localStorage.setItem("token", res.data.token)
         alert("cadastro realizado com sucesso!")
