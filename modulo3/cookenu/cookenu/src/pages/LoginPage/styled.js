@@ -8,7 +8,7 @@ width: 100vw;
 margin-top: 1vh;
 `
 
-export const InputsContainer = styled.div`
+export const InputsContainer = input.div`
 display: flex;
 flex-direction: column;
 widht: 80vh;
