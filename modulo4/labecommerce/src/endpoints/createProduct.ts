@@ -3,9 +3,9 @@ import { addProduct } from "./addProduct";
 
 export const createProduct = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { name, price, image_url } = req.body
+        const { name, price, img_url } = req.body
 
-        if (!name || !price || !image_url) {
+        if (!name || !price || !img_url) {
             throw new Error("todos valores devem ser informados")
         }
 
@@ -13,7 +13,7 @@ export const createProduct = async (req: Request, res: Response): Promise<void> 
             Date.now().toString(),
             name as string,
             price as number,
-            image_url as string
+            img_url as string
         );
 
         res.send("Produto cadastrado")

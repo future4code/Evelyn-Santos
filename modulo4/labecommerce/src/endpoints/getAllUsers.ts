@@ -14,7 +14,7 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
 
     } catch (error) {
         if (error instanceof Error) {
-            res.send({ error, message: error.message })
+            res.send({ message: error.message })
         } else {
             res.send({ message: "Erro inesperado" })
         }

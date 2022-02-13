@@ -3,7 +3,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import { getAllUsers } from "./endpoints/getAllUsers"
 import { createUser } from "./endpoints/createUser"
-// import { createProducts } from "./endpoints/createProduct"
+import {createProduct} from "./endpoints/createProduct"
 // import { getAllProducts } from "./endpoints/getAllProducts"
 // import { createPurchase } from "./endpoints/createPurchase"
 // import { getPurchase } from "./endpoints//getPurchase"
@@ -23,9 +23,10 @@ app.get("/users", getAllUsers)  // Busca usuários
 
 app.post("/users", createUser) // Cadastro de usuário
 
+app.post("/products", createProduct)  //Cadastro de produtos
+
 // app.get("/products", getAllProducts)  //Busca por todos produtos
 
-// app.post("/products", createProducts)  //Cadastro de produtos
 
 // app.post("/purchases", createPurchase)  //Cadastro de compras
 

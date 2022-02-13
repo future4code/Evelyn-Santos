@@ -9,7 +9,7 @@ export type Products = {
     id: string,
     name: string,
     price: number,
-    image_url: string
+    img_url: string
 } 
 
 export type Purchases = {
